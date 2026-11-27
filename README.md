@@ -79,7 +79,11 @@ python -m src.plots      # writes results/plots/*.png
 ```
 
 ```bash
-python -m pytest -q      # 17 unit tests
+python -m src.diagnose   # fixed-point diagnostics, 1,024 iterations
+```
+
+```bash
+python -m pytest -q      # 20 unit tests
 ```
 
 `python -m src.train --small` is the fallback configuration from the spec: 5,000 training MDPs and 50 epochs. It was not needed, because the default run takes about 25 s in total. `--device cpu|mps|auto` picks the device; the default is MPS when available, otherwise CPU.
@@ -95,6 +99,7 @@ python -m pytest -q      # 17 unit tests
 | `results/per_iteration.csv` | Every metric at every iteration 1..96, for the learned model and exact VI |
 | `results/metrics.npz` | Raw per-MDP metrics and all predicted value vectors (gitignored, 6 MB) |
 | `results/plots/*.png` | The five required plots |
+| `results/diagnostics/` | Fixed-point diagnostics: `report.md`, `summary.json`, three plots |
 
 ## What is implemented
 
@@ -118,6 +123,31 @@ The hypothesis was that an updater trained only on iterations 1–16 would keep 
 What happened was a mix of the first two. For about 30–40 iterations past the horizon, the learned operator follows the exact VI trajectory closely. It has learned a good approximation of the Bellman backup over the range of values it saw in training, so extra compute keeps paying off. Close to V\*, the small error in f_θ starts to dominate. The learned map is still contractive, so it converges stably, but to a fixed point about 0.1 away from V\* (median). Exact VI does not have this floor.
 
 Regret tells a slightly different story from value error. The greedy policy is already optimal in 98.6% of states at iteration 16 and peaks near iteration 24. After that, the learned fixed point's bias reorders a few near-tied actions, and regret rises a little. So **more inference compute helped value accuracy substantially but did not monotonically improve decisions.**
+
+## Fixed-point diagnostics
+
+`python -m src.diagnose` looks at why the learned updater stops at about 0.1 error. Notation: T is the exact Bellman operator and T̂ is one step of the learned model. Full numbers are in [results/diagnostics/report.md](results/diagnostics/report.md).
+
+1. **Long runs: the plateau is final.** Median value error is 0.0977 at 96 and 0.0975 at 128, 256, 512 and 1,024 iterations. The learned iteration reaches an exact float32 fixed point by about iteration 130. Error rises from 96 to 1,024 on only 0.9% of MDPs, with no late divergence.
+2. **Bellman residual: converged, but not to V\*.** The learned operator's own residual ‖T̂V̂−V̂‖∞ falls to 0. The true residual ‖TV̂−V̂‖∞ stays at 0.022 (median). This confirms the central limitation: the model stops at its own fixed point, not at V\*.
+3. **The bias is systematic and comes from training coverage.** 98.4% of states are underestimated, and 96.5% of MDPs have the same bias sign on all 8 states. The bias is near zero for V\* below 6 and grows steadily with V\*: mean −0.12 for V\* in [6, 7), −0.48 in [8, 9) and −0.65 in [9, 10).
+   - Training only ever shows the MLP successor values from V₀ to V₁₅, and the largest of those is 7.94.
+   - At the fixed point, 19% of V\* entries are above 7.94, and 36% of test MDPs have at least one such state.
+   - In the range training covered, f_θ is within 0.0095 of r + 0.9v on average and its effective discount ∂f/∂v is 0.896. Above 7.94 it underestimates by 0.052 on average and its effective discount drops to 0.879.
+   - Median fixed-point error is 0.055 for MDPs that stay inside the training range and 0.488 for MDPs that leave it.
+   - The updater generalises past its training horizon in *iterations*, but not past its training range in *values*. Running longer means visiting larger values than training ever showed it.
+4. **Single learned step vs iterating it.** Given the same input V, the one-step error ‖T̂V − TV‖∞ is small: 0.005–0.010 on early iterates and 0.024 at V\* (medians). Iterating amplifies it.
+   - T̂ is a contraction near V\*: its estimated Lipschitz factor L has median 0.894 and max 0.920, and the measured convergence rate is 0.890.
+   - So the fixed-point error should be at most about ‖T̂V\* − V\*‖∞ / (1 − L). That bound has median 0.22 and holds on 99.3% of MDPs. The rest are probably because L is estimated from random samples, which can miss the worst case.
+   - The actual fixed-point error has median 0.123, about 5× the one-step error.
+   - The gap between the learned and exact trajectories, ‖V̂_t − V_t‖∞, grows from 0.03 at t = 16 to 0.12 at t ≥ 96.
+
+In short, the updater learned the direction of value iteration and converges stably, but to a biased fixed point. The diagnostics add the reason: most of the bias comes from f_θ extrapolating to successor values above anything in its training trajectories. A contraction factor near 0.9 amplifies that small per-step error by up to about 10×.
+
+Directions this points to for the next experiment, none of them tested here:
+- train on longer trajectories, or on V\* itself, so the value range is covered
+- add a fixed-point or Bellman-residual loss on T̂(V\*) − V\*
+- normalise value inputs so that high values are not extrapolation
 
 ## Limitations
 
