@@ -1,0 +1,1966 @@
+{
+  "n_test": 1000,
+  "train_iters": 16,
+  "outcome": "continued refinement, then fixed-point plateau",
+  "criteria": {
+    "median_value_error_16": 1.300477332678208,
+    "median_value_error_64": 0.10234297877939641,
+    "median_value_error_96": 0.09767330624527826,
+    "value_error_change_pct": -92.13035273989506,
+    "median_value_error_decreases": true,
+    "median_regret_16": 0.0,
+    "median_regret_64": 0.0,
+    "mean_regret_16": 0.000666512554256492,
+    "mean_regret_64": 0.00037947659737354214,
+    "median_regret_decreases": false,
+    "value_std_96": 0.5220129086878644,
+    "v_star_std": 0.5339439935333776,
+    "no_collapse_or_divergence": true,
+    "positive_result": false
+  },
+  "pct_improving": {
+    "16->32": 100.0,
+    "32->64": 100.0,
+    "64->96": 99.1
+  },
+  "recurrent": {
+    "per_iteration": {
+      "1": {
+        "mean_value_error": 5.817153185019283,
+        "median_value_error": 5.9516829298551075,
+        "mean_max_value_error": 6.361784272865638,
+        "median_max_value_error": 6.4949547715765625,
+        "mean_regret": 0.07515026108822749,
+        "median_regret": 0.037986018839734736,
+        "mean_pct_optimal": 80.55,
+        "median_pct_optimal": 87.5
+      },
+      "2": {
+        "mean_value_error": 5.303747152731359,
+        "median_value_error": 5.405009182116001,
+        "mean_max_value_error": 5.693951967170266,
+        "median_max_value_error": 5.844444497446774,
+        "mean_regret": 0.04154168351402099,
+        "median_regret": 0.012029594362113871,
+        "mean_pct_optimal": 86.4875,
+        "median_pct_optimal": 87.5
+      },
+      "3": {
+        "mean_value_error": 4.814509242832183,
+        "median_value_error": 4.899231813178786,
+        "mean_max_value_error": 5.1052459014772715,
+        "median_max_value_error": 5.237423158938183,
+        "mean_regret": 0.025102592177511922,
+        "median_regret": 0.0012090299555865824,
+        "mean_pct_optimal": 90.125,
+        "median_pct_optimal": 87.5
+      },
+      "4": {
+        "mean_value_error": 4.358071468308142,
+        "median_value_error": 4.430436105051445,
+        "mean_max_value_error": 4.584811124269253,
+        "median_max_value_error": 4.706205184807846,
+        "mean_regret": 0.01671785677342406,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 92.2875,
+        "median_pct_optimal": 100.0
+      },
+      "5": {
+        "mean_value_error": 3.9390116457171205,
+        "median_value_error": 4.007323527092209,
+        "mean_max_value_error": 4.121177223407221,
+        "median_max_value_error": 4.23273125601287,
+        "mean_regret": 0.011580607914560408,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 93.8625,
+        "median_pct_optimal": 100.0
+      },
+      "6": {
+        "mean_value_error": 3.5566834701756416,
+        "median_value_error": 3.6299893318721628,
+        "mean_max_value_error": 3.708542313697025,
+        "median_max_value_error": 3.8171890855262594,
+        "mean_regret": 0.008437517476813268,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 95.0875,
+        "median_pct_optimal": 100.0
+      },
+      "7": {
+        "mean_value_error": 3.210236141357145,
+        "median_value_error": 3.2899345678870837,
+        "mean_max_value_error": 3.3399685416542053,
+        "median_max_value_error": 3.4404245496223287,
+        "mean_regret": 0.005779029015381741,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 96.0625,
+        "median_pct_optimal": 100.0
+      },
+      "8": {
+        "mean_value_error": 2.896306815912987,
+        "median_value_error": 2.9853045640283877,
+        "mean_max_value_error": 3.0089978510720607,
+        "median_max_value_error": 3.1014225529082555,
+        "mean_regret": 0.0038350833636832185,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 96.775,
+        "median_pct_optimal": 100.0
+      },
+      "9": {
+        "mean_value_error": 2.6134386817063606,
+        "median_value_error": 2.6930963695027965,
+        "mean_max_value_error": 2.7114131986435908,
+        "median_max_value_error": 2.79583897918697,
+        "mean_regret": 0.0030959355179076067,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 97.2125,
+        "median_pct_optimal": 100.0
+      },
+      "10": {
+        "mean_value_error": 2.3582678555860586,
+        "median_value_error": 2.431395762409624,
+        "mean_max_value_error": 2.4438079277038534,
+        "median_max_value_error": 2.520745848858065,
+        "mean_regret": 0.0025512739436397,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 97.375,
+        "median_pct_optimal": 100.0
+      },
+      "11": {
+        "mean_value_error": 2.1272292019739214,
+        "median_value_error": 2.1938668353234063,
+        "mean_max_value_error": 2.2033097191865716,
+        "median_max_value_error": 2.2724613910526084,
+        "mean_regret": 0.0018661927846882276,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 97.825,
+        "median_pct_optimal": 100.0
+      },
+      "12": {
+        "mean_value_error": 1.9188847301849565,
+        "median_value_error": 1.9751129963067862,
+        "mean_max_value_error": 1.9873630548907462,
+        "median_max_value_error": 2.0458613242009296,
+        "mean_regret": 0.0014856217693239723,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 97.9625,
+        "median_pct_optimal": 100.0
+      },
+      "13": {
+        "mean_value_error": 1.732526863716117,
+        "median_value_error": 1.7807668231386509,
+        "mean_max_value_error": 1.794179534727804,
+        "median_max_value_error": 1.84370431301751,
+        "mean_regret": 0.0010964437092821071,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 98.2125,
+        "median_pct_optimal": 100.0
+      },
+      "14": {
+        "mean_value_error": 1.5647180667375615,
+        "median_value_error": 1.6056166616013643,
+        "mean_max_value_error": 1.6210705328071284,
+        "median_max_value_error": 1.6621056118627617,
+        "mean_regret": 0.0009048144570885045,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 98.4,
+        "median_pct_optimal": 100.0
+      },
+      "15": {
+        "mean_value_error": 1.413889122589997,
+        "median_value_error": 1.4446605870953282,
+        "mean_max_value_error": 1.46613514277911,
+        "median_max_value_error": 1.4970638065476436,
+        "mean_regret": 0.0007668422620605677,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 98.55,
+        "median_pct_optimal": 100.0
+      },
+      "16": {
+        "mean_value_error": 1.279520018178544,
+        "median_value_error": 1.300477332678208,
+        "mean_max_value_error": 1.3281073539333133,
+        "median_max_value_error": 1.3484027349911476,
+        "mean_regret": 0.000666512554256492,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 98.5875,
+        "median_pct_optimal": 100.0
+      },
+      "17": {
+        "mean_value_error": 1.1593868357181019,
+        "median_value_error": 1.173136092033753,
+        "mean_max_value_error": 1.2048828475299789,
+        "median_max_value_error": 1.216100005128208,
+        "mean_regret": 0.00044172881345664445,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 98.85,
+        "median_pct_optimal": 100.0
+      },
+      "18": {
+        "mean_value_error": 1.051965457139111,
+        "median_value_error": 1.057197151425448,
+        "mean_max_value_error": 1.094878503238111,
+        "median_max_value_error": 1.096179185964031,
+        "mean_regret": 0.00043352002758468097,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 98.8875,
+        "median_pct_optimal": 100.0
+      },
+      "19": {
+        "mean_value_error": 0.9563226790256267,
+        "median_value_error": 0.9516928694667157,
+        "mean_max_value_error": 0.9971997923842753,
+        "median_max_value_error": 0.9886649295725114,
+        "mean_regret": 0.0003596016790225557,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.0,
+        "median_pct_optimal": 100.0
+      },
+      "20": {
+        "mean_value_error": 0.8710476779886922,
+        "median_value_error": 0.8580618181258111,
+        "mean_max_value_error": 0.9101492109518583,
+        "median_max_value_error": 0.8927319377137723,
+        "mean_regret": 0.0002987921867245758,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.0875,
+        "median_pct_optimal": 100.0
+      },
+      "21": {
+        "mean_value_error": 0.7953835370927518,
+        "median_value_error": 0.7758265613859854,
+        "mean_max_value_error": 0.8329766595726661,
+        "median_max_value_error": 0.8073269029376875,
+        "mean_regret": 0.0002582202986315907,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.175,
+        "median_pct_optimal": 100.0
+      },
+      "22": {
+        "mean_value_error": 0.7280554955113148,
+        "median_value_error": 0.6990727748470469,
+        "mean_max_value_error": 0.7644272366181272,
+        "median_max_value_error": 0.7299951690626645,
+        "mean_regret": 0.0002636316378573504,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.05,
+        "median_pct_optimal": 100.0
+      },
+      "23": {
+        "mean_value_error": 0.6679420145224249,
+        "median_value_error": 0.6354828481203376,
+        "mean_max_value_error": 0.7032823026687924,
+        "median_max_value_error": 0.6614421189822619,
+        "mean_regret": 0.00022093761805882362,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2125,
+        "median_pct_optimal": 100.0
+      },
+      "24": {
+        "mean_value_error": 0.6146063601184105,
+        "median_value_error": 0.5753215257650672,
+        "mean_max_value_error": 0.6491322920878826,
+        "median_max_value_error": 0.6024330396075408,
+        "mean_regret": 0.00020633104047338801,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2625,
+        "median_pct_optimal": 100.0
+      },
+      "25": {
+        "mean_value_error": 0.5675154392146906,
+        "median_value_error": 0.5205799034909775,
+        "mean_max_value_error": 0.6014223401920897,
+        "median_max_value_error": 0.5489052860990071,
+        "mean_regret": 0.0002315160675144284,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.125,
+        "median_pct_optimal": 100.0
+      },
+      "26": {
+        "mean_value_error": 0.5255994916665768,
+        "median_value_error": 0.4738364445950748,
+        "mean_max_value_error": 0.5587724028589118,
+        "median_max_value_error": 0.5011292994941123,
+        "mean_regret": 0.00021780982042267377,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2625,
+        "median_pct_optimal": 100.0
+      },
+      "27": {
+        "mean_value_error": 0.48819576808488274,
+        "median_value_error": 0.4337617163850228,
+        "mean_max_value_error": 0.5210767219440675,
+        "median_max_value_error": 0.4585160618039996,
+        "mean_regret": 0.0002477716661927959,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.25,
+        "median_pct_optimal": 100.0
+      },
+      "28": {
+        "mean_value_error": 0.4551504729469707,
+        "median_value_error": 0.3967881198704099,
+        "mean_max_value_error": 0.4876648115812403,
+        "median_max_value_error": 0.4206648365295984,
+        "mean_regret": 0.00026355477331755094,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "29": {
+        "mean_value_error": 0.4258781466097971,
+        "median_value_error": 0.3634687261520647,
+        "mean_max_value_error": 0.45808723559236636,
+        "median_max_value_error": 0.38695223731641537,
+        "mean_regret": 0.0002607067010529054,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.225,
+        "median_pct_optimal": 100.0
+      },
+      "30": {
+        "mean_value_error": 0.3998686766331484,
+        "median_value_error": 0.33357112208397277,
+        "mean_max_value_error": 0.4317418125879392,
+        "median_max_value_error": 0.35718977860452306,
+        "mean_regret": 0.00025438809981400014,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.3,
+        "median_pct_optimal": 100.0
+      },
+      "31": {
+        "mean_value_error": 0.37680481591498755,
+        "median_value_error": 0.3069105605223883,
+        "mean_max_value_error": 0.40863923024953336,
+        "median_max_value_error": 0.33130342305801364,
+        "mean_regret": 0.0002612034170861481,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.225,
+        "median_pct_optimal": 100.0
+      },
+      "32": {
+        "mean_value_error": 0.3563071427462091,
+        "median_value_error": 0.2838653883761276,
+        "mean_max_value_error": 0.38795693619889143,
+        "median_max_value_error": 0.3070440357835489,
+        "mean_regret": 0.0002622939406679728,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2625,
+        "median_pct_optimal": 100.0
+      },
+      "33": {
+        "mean_value_error": 0.33815563331408705,
+        "median_value_error": 0.26317138356026254,
+        "mean_max_value_error": 0.3697875730326711,
+        "median_max_value_error": 0.28717126906204804,
+        "mean_regret": 0.00028799598512623437,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2375,
+        "median_pct_optimal": 100.0
+      },
+      "34": {
+        "mean_value_error": 0.32210394899225137,
+        "median_value_error": 0.24424997848328195,
+        "mean_max_value_error": 0.35362949668170873,
+        "median_max_value_error": 0.2680629962675516,
+        "mean_regret": 0.0002949777568542287,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2375,
+        "median_pct_optimal": 100.0
+      },
+      "35": {
+        "mean_value_error": 0.3077850018502613,
+        "median_value_error": 0.2286575216184762,
+        "mean_max_value_error": 0.3393020518948457,
+        "median_max_value_error": 0.25249998985545163,
+        "mean_regret": 0.00031535991132893834,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2375,
+        "median_pct_optimal": 100.0
+      },
+      "36": {
+        "mean_value_error": 0.2951053368044486,
+        "median_value_error": 0.21398000329566075,
+        "mean_max_value_error": 0.32657435677453256,
+        "median_max_value_error": 0.2371298450308701,
+        "mean_regret": 0.000316006025289019,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.25,
+        "median_pct_optimal": 100.0
+      },
+      "37": {
+        "mean_value_error": 0.2839062422835668,
+        "median_value_error": 0.20102824181151463,
+        "mean_max_value_error": 0.315541339236587,
+        "median_max_value_error": 0.2249838632227612,
+        "mean_regret": 0.00033026094356603284,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1625,
+        "median_pct_optimal": 100.0
+      },
+      "38": {
+        "mean_value_error": 0.27394707074361235,
+        "median_value_error": 0.18958078235220982,
+        "mean_max_value_error": 0.30554874051025854,
+        "median_max_value_error": 0.2132313591007562,
+        "mean_regret": 0.0003132388563258837,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.25,
+        "median_pct_optimal": 100.0
+      },
+      "39": {
+        "mean_value_error": 0.2650683657055586,
+        "median_value_error": 0.17901371329855992,
+        "mean_max_value_error": 0.29668384978210666,
+        "median_max_value_error": 0.20331852852122312,
+        "mean_regret": 0.0003248369415601117,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2375,
+        "median_pct_optimal": 100.0
+      },
+      "40": {
+        "mean_value_error": 0.2572411312703023,
+        "median_value_error": 0.16981057733130528,
+        "mean_max_value_error": 0.28887438615215344,
+        "median_max_value_error": 0.19398811874431088,
+        "mean_regret": 0.0003686990089947607,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.225,
+        "median_pct_optimal": 100.0
+      },
+      "41": {
+        "mean_value_error": 0.250307278221428,
+        "median_value_error": 0.16163599810820917,
+        "mean_max_value_error": 0.2820930818802302,
+        "median_max_value_error": 0.1862713616968823,
+        "mean_regret": 0.00038089229552992656,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "42": {
+        "mean_value_error": 0.24413469341846183,
+        "median_value_error": 0.1543262632868896,
+        "mean_max_value_error": 0.2759253558796605,
+        "median_max_value_error": 0.1788413864139886,
+        "mean_regret": 0.00037940955974399284,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2125,
+        "median_pct_optimal": 100.0
+      },
+      "43": {
+        "mean_value_error": 0.23864545945716742,
+        "median_value_error": 0.14783668837767938,
+        "mean_max_value_error": 0.2705212870689185,
+        "median_max_value_error": 0.17286293922678952,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "44": {
+        "mean_value_error": 0.2337910453202657,
+        "median_value_error": 0.14305941826494634,
+        "mean_max_value_error": 0.26569430560126883,
+        "median_max_value_error": 0.16692474899333432,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "45": {
+        "mean_value_error": 0.22948708492397202,
+        "median_value_error": 0.13805709845217168,
+        "mean_max_value_error": 0.2614672354270876,
+        "median_max_value_error": 0.16232054649607663,
+        "mean_regret": 0.00037940955974399284,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2125,
+        "median_pct_optimal": 100.0
+      },
+      "46": {
+        "mean_value_error": 0.22568703554703956,
+        "median_value_error": 0.1336387551465839,
+        "mean_max_value_error": 0.25773914852784024,
+        "median_max_value_error": 0.1575522762302728,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "47": {
+        "mean_value_error": 0.22228054279505152,
+        "median_value_error": 0.12956361538561284,
+        "mean_max_value_error": 0.2544173772210431,
+        "median_max_value_error": 0.15399197158854916,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "48": {
+        "mean_value_error": 0.21926463441762695,
+        "median_value_error": 0.1260161555448383,
+        "mean_max_value_error": 0.251391219406284,
+        "median_max_value_error": 0.1501829963688226,
+        "mean_regret": 0.00037940955974399284,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2125,
+        "median_pct_optimal": 100.0
+      },
+      "49": {
+        "mean_value_error": 0.21660562904264896,
+        "median_value_error": 0.12291453844698369,
+        "mean_max_value_error": 0.24883519398376552,
+        "median_max_value_error": 0.14745541116835437,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "50": {
+        "mean_value_error": 0.2142428447278942,
+        "median_value_error": 0.12017573482187688,
+        "mean_max_value_error": 0.24650570759210866,
+        "median_max_value_error": 0.14438847122233822,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "51": {
+        "mean_value_error": 0.21212633832182584,
+        "median_value_error": 0.11765010720880925,
+        "mean_max_value_error": 0.24443660283892815,
+        "median_max_value_error": 0.1421885829929681,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "52": {
+        "mean_value_error": 0.2102584971665576,
+        "median_value_error": 0.11545170909555852,
+        "mean_max_value_error": 0.24261348718931378,
+        "median_max_value_error": 0.1399514248097118,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "53": {
+        "mean_value_error": 0.20859744583676332,
+        "median_value_error": 0.11352972752245366,
+        "mean_max_value_error": 0.24102924666336384,
+        "median_max_value_error": 0.13816066286207995,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "54": {
+        "mean_value_error": 0.20712164200100858,
+        "median_value_error": 0.11183293229731023,
+        "mean_max_value_error": 0.23956118035121396,
+        "median_max_value_error": 0.13625553665202572,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "55": {
+        "mean_value_error": 0.20580794715811163,
+        "median_value_error": 0.11026834017427861,
+        "mean_max_value_error": 0.2382842080060732,
+        "median_max_value_error": 0.135055022450703,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "56": {
+        "mean_value_error": 0.2046411693032237,
+        "median_value_error": 0.10890664226206243,
+        "mean_max_value_error": 0.23715173653579905,
+        "median_max_value_error": 0.13355036279799304,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "57": {
+        "mean_value_error": 0.20360342890383532,
+        "median_value_error": 0.10771597987802922,
+        "mean_max_value_error": 0.2361558908134013,
+        "median_max_value_error": 0.1324317028248485,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "58": {
+        "mean_value_error": 0.2026828802297262,
+        "median_value_error": 0.10666517979296147,
+        "mean_max_value_error": 0.23526037093166677,
+        "median_max_value_error": 0.13141389391066394,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "59": {
+        "mean_value_error": 0.20185912320141333,
+        "median_value_error": 0.10569588905962407,
+        "mean_max_value_error": 0.2344635004026528,
+        "median_max_value_error": 0.13054461977125964,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "60": {
+        "mean_value_error": 0.2011271937432769,
+        "median_value_error": 0.10485266214998662,
+        "mean_max_value_error": 0.2337317886012487,
+        "median_max_value_error": 0.1296062042439159,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "61": {
+        "mean_value_error": 0.20048114787626736,
+        "median_value_error": 0.10411523348482549,
+        "mean_max_value_error": 0.233129012323749,
+        "median_max_value_error": 0.12903900644423327,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "62": {
+        "mean_value_error": 0.19990471524510506,
+        "median_value_error": 0.10346470839174687,
+        "mean_max_value_error": 0.2325749930629468,
+        "median_max_value_error": 0.12830777666212878,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "63": {
+        "mean_value_error": 0.19938628846757103,
+        "median_value_error": 0.10286475783976018,
+        "mean_max_value_error": 0.23206519899747177,
+        "median_max_value_error": 0.12776513597609362,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "64": {
+        "mean_value_error": 0.19892893609450008,
+        "median_value_error": 0.10234297877939641,
+        "mean_max_value_error": 0.23162024032674713,
+        "median_max_value_error": 0.1272723247730907,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "65": {
+        "mean_value_error": 0.198522683790126,
+        "median_value_error": 0.10188604957254827,
+        "mean_max_value_error": 0.23123609643677737,
+        "median_max_value_error": 0.12685008546950183,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "66": {
+        "mean_value_error": 0.19816020291591466,
+        "median_value_error": 0.10148339039476811,
+        "mean_max_value_error": 0.23088149816188633,
+        "median_max_value_error": 0.12639637491347155,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "67": {
+        "mean_value_error": 0.19783639419223517,
+        "median_value_error": 0.1011121130624622,
+        "mean_max_value_error": 0.23057394903520412,
+        "median_max_value_error": 0.12612028619887194,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "68": {
+        "mean_value_error": 0.19754766742991686,
+        "median_value_error": 0.10078899628313481,
+        "mean_max_value_error": 0.23029330505731604,
+        "median_max_value_error": 0.12576528093458972,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "69": {
+        "mean_value_error": 0.1972915024678722,
+        "median_value_error": 0.10050629145296514,
+        "mean_max_value_error": 0.23004695201546246,
+        "median_max_value_error": 0.1255025436604198,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "70": {
+        "mean_value_error": 0.19706401197138426,
+        "median_value_error": 0.1002136860079278,
+        "mean_max_value_error": 0.2298271245587947,
+        "median_max_value_error": 0.12526436349989734,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "71": {
+        "mean_value_error": 0.19685992849796263,
+        "median_value_error": 0.09993178584046258,
+        "mean_max_value_error": 0.22963345627654042,
+        "median_max_value_error": 0.1250588466847118,
+        "mean_regret": 0.00037947659737354214,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.2,
+        "median_pct_optimal": 100.0
+      },
+      "72": {
+        "mean_value_error": 0.1966776751027554,
+        "median_value_error": 0.09968090989060296,
+        "mean_max_value_error": 0.22945419985628882,
+        "median_max_value_error": 0.12483926317335925,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "73": {
+        "mean_value_error": 0.19651646927084027,
+        "median_value_error": 0.09945715405411615,
+        "mean_max_value_error": 0.22930297178148004,
+        "median_max_value_error": 0.12470598718764148,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "74": {
+        "mean_value_error": 0.19637264473448693,
+        "median_value_error": 0.09925470687813653,
+        "mean_max_value_error": 0.22916518176387637,
+        "median_max_value_error": 0.12453432581068835,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "75": {
+        "mean_value_error": 0.19624332849393783,
+        "median_value_error": 0.09907437302536859,
+        "mean_max_value_error": 0.22903768440685968,
+        "median_max_value_error": 0.12440653345228991,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "76": {
+        "mean_value_error": 0.1961287375846058,
+        "median_value_error": 0.09891367890305414,
+        "mean_max_value_error": 0.22892819207202286,
+        "median_max_value_error": 0.12429090044142566,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "77": {
+        "mean_value_error": 0.19602672340805827,
+        "median_value_error": 0.09876818396515741,
+        "mean_max_value_error": 0.22883417276253204,
+        "median_max_value_error": 0.1241910030567821,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "78": {
+        "mean_value_error": 0.19593526575054226,
+        "median_value_error": 0.09863866307206048,
+        "mean_max_value_error": 0.22874389267952278,
+        "median_max_value_error": 0.1240846683705028,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "79": {
+        "mean_value_error": 0.19585370947971195,
+        "median_value_error": 0.09852288104958429,
+        "mean_max_value_error": 0.2286661575042268,
+        "median_max_value_error": 0.12402053377272448,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "80": {
+        "mean_value_error": 0.1957810070860675,
+        "median_value_error": 0.0984182152933587,
+        "mean_max_value_error": 0.22859576054901914,
+        "median_max_value_error": 0.12393637201430163,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "81": {
+        "mean_value_error": 0.19571630610891538,
+        "median_value_error": 0.09832490422196283,
+        "mean_max_value_error": 0.228534651880767,
+        "median_max_value_error": 0.12387509843947253,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "82": {
+        "mean_value_error": 0.1956586910199054,
+        "median_value_error": 0.09824181534714593,
+        "mean_max_value_error": 0.22848007142311536,
+        "median_max_value_error": 0.12381883165480456,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "83": {
+        "mean_value_error": 0.19560693886399555,
+        "median_value_error": 0.09816653468079461,
+        "mean_max_value_error": 0.22843063713863926,
+        "median_max_value_error": 0.12377067110182605,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "84": {
+        "mean_value_error": 0.195560872457127,
+        "median_value_error": 0.09809912182755365,
+        "mean_max_value_error": 0.22838479181906188,
+        "median_max_value_error": 0.1237184574330028,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "85": {
+        "mean_value_error": 0.19552020234634607,
+        "median_value_error": 0.09803907014794244,
+        "mean_max_value_error": 0.22834648996845322,
+        "median_max_value_error": 0.1236874630177196,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "86": {
+        "mean_value_error": 0.1954839341111618,
+        "median_value_error": 0.09798471071190729,
+        "mean_max_value_error": 0.22831208789130653,
+        "median_max_value_error": 0.12364717027785144,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "87": {
+        "mean_value_error": 0.1954511652354921,
+        "median_value_error": 0.09793616272873773,
+        "mean_max_value_error": 0.22828011271139587,
+        "median_max_value_error": 0.12361736795546374,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "88": {
+        "mean_value_error": 0.19542207924330302,
+        "median_value_error": 0.09789291955895318,
+        "mean_max_value_error": 0.22825177009185757,
+        "median_max_value_error": 0.12359042665602527,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "89": {
+        "mean_value_error": 0.19539631633886761,
+        "median_value_error": 0.09785384871430292,
+        "mean_max_value_error": 0.22822771025976146,
+        "median_max_value_error": 0.12356634637953601,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "90": {
+        "mean_value_error": 0.19537321258762547,
+        "median_value_error": 0.09781895019478692,
+        "mean_max_value_error": 0.22820459633574325,
+        "median_max_value_error": 0.12354202768446765,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "91": {
+        "mean_value_error": 0.19535252918304377,
+        "median_value_error": 0.09778792597718133,
+        "mean_max_value_error": 0.22818497007867303,
+        "median_max_value_error": 0.12352629205824694,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "92": {
+        "mean_value_error": 0.19533407119383536,
+        "median_value_error": 0.09775940515465631,
+        "mean_max_value_error": 0.22816723456015792,
+        "median_max_value_error": 0.12350721857191882,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "93": {
+        "mean_value_error": 0.19531759240683533,
+        "median_value_error": 0.09773419238991632,
+        "mean_max_value_error": 0.22815125225266422,
+        "median_max_value_error": 0.12349148294569812,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "94": {
+        "mean_value_error": 0.19530295915734389,
+        "median_value_error": 0.09771178104348077,
+        "mean_max_value_error": 0.228137150777187,
+        "median_max_value_error": 0.12347860834242663,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "95": {
+        "mean_value_error": 0.1952897963898293,
+        "median_value_error": 0.09769142605728998,
+        "mean_max_value_error": 0.22812443777427513,
+        "median_max_value_error": 0.12346787950636706,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      },
+      "96": {
+        "mean_value_error": 0.19527800899390496,
+        "median_value_error": 0.09767330624527826,
+        "mean_max_value_error": 0.22811272756537404,
+        "median_max_value_error": 0.12345595857741198,
+        "mean_regret": 0.0004199487948744669,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1875,
+        "median_pct_optimal": 100.0
+      }
+    }
+  },
+  "exact_vi": {
+    "per_iteration": {
+      "1": {
+        "mean_value_error": 5.81835333073317,
+        "median_value_error": 5.953024100361133,
+        "mean_max_value_error": 6.361344561037824,
+        "median_max_value_error": 6.497680479674921,
+        "mean_regret": 0.0756446254483929,
+        "median_regret": 0.03809157019516185,
+        "mean_pct_optimal": 80.5,
+        "median_pct_optimal": 87.5
+      },
+      "2": {
+        "mean_value_error": 5.3005196284891705,
+        "median_value_error": 5.404528364656654,
+        "mean_max_value_error": 5.689053366465004,
+        "median_max_value_error": 5.839471596540296,
+        "mean_regret": 0.04191569258712026,
+        "median_regret": 0.012265132434888748,
+        "mean_pct_optimal": 86.3875,
+        "median_pct_optimal": 87.5
+      },
+      "3": {
+        "mean_value_error": 4.8085788240034875,
+        "median_value_error": 4.891886252196768,
+        "mean_max_value_error": 5.098407230339253,
+        "median_max_value_error": 5.233313191396667,
+        "mean_regret": 0.02487178092719396,
+        "median_regret": 0.0009466729048063782,
+        "mean_pct_optimal": 90.1875,
+        "median_pct_optimal": 87.5
+      },
+      "4": {
+        "mean_value_error": 4.352118762695183,
+        "median_value_error": 4.424379536957912,
+        "mean_max_value_error": 4.578106009517029,
+        "median_max_value_error": 4.7076754933446745,
+        "mean_regret": 0.01697399078125442,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 92.25,
+        "median_pct_optimal": 100.0
+      },
+      "5": {
+        "mean_value_error": 3.9333566398948308,
+        "median_value_error": 4.0014756793878234,
+        "mean_max_value_error": 4.114094957392514,
+        "median_max_value_error": 4.228701374359419,
+        "mean_regret": 0.011527243558009994,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 93.95,
+        "median_pct_optimal": 100.0
+      },
+      "6": {
+        "mean_value_error": 3.5502264561763504,
+        "median_value_error": 3.6248114231734148,
+        "mean_max_value_error": 3.6999271960247206,
+        "median_max_value_error": 3.805831230589505,
+        "mean_regret": 0.008383605727984675,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 95.15,
+        "median_pct_optimal": 100.0
+      },
+      "7": {
+        "mean_value_error": 3.2021449404221376,
+        "median_value_error": 3.2841293862938774,
+        "mean_max_value_error": 3.3289064130973065,
+        "median_max_value_error": 3.4252481011965825,
+        "mean_regret": 0.005772591292875187,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 96.1375,
+        "median_pct_optimal": 100.0
+      },
+      "8": {
+        "mean_value_error": 2.886167907516783,
+        "median_value_error": 2.9755576159833765,
+        "mean_max_value_error": 2.9956256890440622,
+        "median_max_value_error": 3.0827232847429524,
+        "mean_regret": 0.003810330762884111,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 96.875,
+        "median_pct_optimal": 100.0
+      },
+      "9": {
+        "mean_value_error": 2.601386739928895,
+        "median_value_error": 2.6786998920197966,
+        "mean_max_value_error": 2.6958447927524767,
+        "median_max_value_error": 2.774450949934685,
+        "mean_regret": 0.003085757142217321,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 97.2875,
+        "median_pct_optimal": 100.0
+      },
+      "10": {
+        "mean_value_error": 2.3444033136008775,
+        "median_value_error": 2.4130816468659386,
+        "mean_max_value_error": 2.4260285369419816,
+        "median_max_value_error": 2.4970058486072446,
+        "mean_regret": 0.0026169184265802804,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 97.4125,
+        "median_pct_optimal": 100.0
+      },
+      "11": {
+        "mean_value_error": 2.111595489509712,
+        "median_value_error": 2.173695126535285,
+        "mean_max_value_error": 2.1833194003922345,
+        "median_max_value_error": 2.2473052574125476,
+        "mean_regret": 0.0018271717532434436,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 97.9125,
+        "median_pct_optimal": 100.0
+      },
+      "12": {
+        "mean_value_error": 1.9013473852369143,
+        "median_value_error": 1.9548647992906225,
+        "mean_max_value_error": 1.964893168250769,
+        "median_max_value_error": 2.022574725337321,
+        "mean_regret": 0.0014544962797373032,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 98.0625,
+        "median_pct_optimal": 100.0
+      },
+      "13": {
+        "mean_value_error": 1.7127848144785653,
+        "median_value_error": 1.7618041531520128,
+        "mean_max_value_error": 1.7684038457937283,
+        "median_max_value_error": 1.8203172464696173,
+        "mean_regret": 0.001017544142770055,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 98.3125,
+        "median_pct_optimal": 100.0
+      },
+      "14": {
+        "mean_value_error": 1.542258083250014,
+        "median_value_error": 1.5838196356659895,
+        "mean_max_value_error": 1.591551050363667,
+        "median_max_value_error": 1.638285515488684,
+        "mean_regret": 0.0008532250817777274,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 98.5125,
+        "median_pct_optimal": 100.0
+      },
+      "15": {
+        "mean_value_error": 1.388161437133167,
+        "median_value_error": 1.4261613514603695,
+        "mean_max_value_error": 1.4323668411280175,
+        "median_max_value_error": 1.474456957605844,
+        "mean_regret": 0.0007497312128972788,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 98.675,
+        "median_pct_optimal": 100.0
+      },
+      "16": {
+        "mean_value_error": 1.2499300436396934,
+        "median_value_error": 1.2825867737612633,
+        "mean_max_value_error": 1.2891171901631817,
+        "median_max_value_error": 1.3270112555112874,
+        "mean_regret": 0.0005593561178308833,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 98.75,
+        "median_pct_optimal": 100.0
+      },
+      "17": {
+        "mean_value_error": 1.1253431906458582,
+        "median_value_error": 1.1559196838236048,
+        "mean_max_value_error": 1.1602054653796332,
+        "median_max_value_error": 1.1943101236261868,
+        "mean_regret": 0.0003405646887760375,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.0125,
+        "median_pct_optimal": 100.0
+      },
+      "18": {
+        "mean_value_error": 1.0129349862352834,
+        "median_value_error": 1.0391440419021005,
+        "mean_max_value_error": 1.0441849127065574,
+        "median_max_value_error": 1.0748791049295967,
+        "mean_regret": 0.00029167472532029787,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.1375,
+        "median_pct_optimal": 100.0
+      },
+      "19": {
+        "mean_value_error": 0.9118580982545318,
+        "median_value_error": 0.9357044416337178,
+        "mean_max_value_error": 0.9397664155929537,
+        "median_max_value_error": 0.9673911881026651,
+        "mean_regret": 0.00024791709373078426,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.175,
+        "median_pct_optimal": 100.0
+      },
+      "20": {
+        "mean_value_error": 0.8207321340060552,
+        "median_value_error": 0.8415051612114505,
+        "mean_max_value_error": 0.8457897672313618,
+        "median_max_value_error": 0.8706520629584262,
+        "mean_regret": 0.00016517647769660764,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.3125,
+        "median_pct_optimal": 100.0
+      },
+      "21": {
+        "mean_value_error": 0.7389254761030323,
+        "median_value_error": 0.7583988834972367,
+        "mean_max_value_error": 0.7612107850616431,
+        "median_max_value_error": 0.7835868503286121,
+        "mean_regret": 0.00015407710675800909,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.4375,
+        "median_pct_optimal": 100.0
+      },
+      "22": {
+        "mean_value_error": 0.6652218355965165,
+        "median_value_error": 0.6832233543829291,
+        "mean_max_value_error": 0.685089700209298,
+        "median_max_value_error": 0.7052281589617788,
+        "mean_regret": 0.00014561564881673272,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.3375,
+        "median_pct_optimal": 100.0
+      },
+      "23": {
+        "mean_value_error": 0.5986009549542803,
+        "median_value_error": 0.6146713817690566,
+        "mean_max_value_error": 0.6165807241594432,
+        "median_max_value_error": 0.6347053367316291,
+        "mean_regret": 9.48214959440446e-05,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.5375,
+        "median_pct_optimal": 100.0
+      },
+      "24": {
+        "mean_value_error": 0.5386949362588865,
+        "median_value_error": 0.5522719312306281,
+        "mean_max_value_error": 0.5549226454284363,
+        "median_max_value_error": 0.5712347967244944,
+        "mean_regret": 6.933426386817942e-05,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.6375,
+        "median_pct_optimal": 100.0
+      },
+      "25": {
+        "mean_value_error": 0.48506393735610925,
+        "median_value_error": 0.49815935485653084,
+        "mean_max_value_error": 0.49943037522136013,
+        "median_max_value_error": 0.5141113107180733,
+        "mean_regret": 5.998647232763057e-05,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.55,
+        "median_pct_optimal": 100.0
+      },
+      "26": {
+        "mean_value_error": 0.43664168622424127,
+        "median_value_error": 0.44834767198395564,
+        "mean_max_value_error": 0.4494873310156654,
+        "median_max_value_error": 0.46270017331229374,
+        "mean_regret": 4.520147724730272e-05,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.65,
+        "median_pct_optimal": 100.0
+      },
+      "27": {
+        "mean_value_error": 0.39285583486217385,
+        "median_value_error": 0.4032858725308451,
+        "mean_max_value_error": 0.4045385924080424,
+        "median_max_value_error": 0.4164301496470926,
+        "mean_regret": 2.8060052099298792e-05,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.7375,
+        "median_pct_optimal": 100.0
+      },
+      "28": {
+        "mean_value_error": 0.35358858885579647,
+        "median_value_error": 0.3623455930209845,
+        "mean_max_value_error": 0.36408472659300234,
+        "median_max_value_error": 0.37478712834841144,
+        "mean_regret": 2.8202483574038152e-05,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.6625,
+        "median_pct_optimal": 100.0
+      },
+      "29": {
+        "mean_value_error": 0.3183076878131757,
+        "median_value_error": 0.32684233167353677,
+        "mean_max_value_error": 0.3276762480984946,
+        "median_max_value_error": 0.33730840917959837,
+        "mean_regret": 1.473651775269394e-05,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.775,
+        "median_pct_optimal": 100.0
+      },
+      "30": {
+        "mean_value_error": 0.2864775242033126,
+        "median_value_error": 0.2941608864818163,
+        "mean_max_value_error": 0.2949086171229233,
+        "median_max_value_error": 0.30357756192766683,
+        "mean_regret": 9.598737108554079e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.8125,
+        "median_pct_optimal": 100.0
+      },
+      "31": {
+        "mean_value_error": 0.25785289718509924,
+        "median_value_error": 0.26459583991965474,
+        "mean_max_value_error": 0.2654177494877403,
+        "median_max_value_error": 0.2732197994009278,
+        "mean_regret": 9.037839790668634e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.8375,
+        "median_pct_optimal": 100.0
+      },
+      "32": {
+        "mean_value_error": 0.23204095138528424,
+        "median_value_error": 0.23773492252163747,
+        "mean_max_value_error": 0.23887596782316922,
+        "median_max_value_error": 0.24589781312686254,
+        "mean_regret": 6.179513518147717e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.825,
+        "median_pct_optimal": 100.0
+      },
+      "33": {
+        "mean_value_error": 0.20884441007162052,
+        "median_value_error": 0.21444123276317445,
+        "mean_max_value_error": 0.21498836568342153,
+        "median_max_value_error": 0.22130802548020467,
+        "mean_regret": 8.062995299070619e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.85,
+        "median_pct_optimal": 100.0
+      },
+      "34": {
+        "mean_value_error": 0.18800605230116724,
+        "median_value_error": 0.1929624111121203,
+        "mean_max_value_error": 0.19348952270833994,
+        "median_max_value_error": 0.19917721659821241,
+        "mean_regret": 4.320265653812827e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.8875,
+        "median_pct_optimal": 100.0
+      },
+      "35": {
+        "mean_value_error": 0.16917867654657842,
+        "median_value_error": 0.1736013095234521,
+        "mean_max_value_error": 0.17414056437684852,
+        "median_max_value_error": 0.1792594886044192,
+        "mean_regret": 4.036461639145117e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.8625,
+        "median_pct_optimal": 100.0
+      },
+      "36": {
+        "mean_value_error": 0.15224198772915432,
+        "median_value_error": 0.1559778616070152,
+        "mean_max_value_error": 0.15672650154041845,
+        "median_max_value_error": 0.16133353341000545,
+        "mean_regret": 3.7578822274797472e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.9,
+        "median_pct_optimal": 100.0
+      },
+      "37": {
+        "mean_value_error": 0.13706100340807478,
+        "median_value_error": 0.14069487176808504,
+        "mean_max_value_error": 0.14105384581030303,
+        "median_max_value_error": 0.14520017373503347,
+        "mean_regret": 3.6562073514814776e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.8875,
+        "median_pct_optimal": 100.0
+      },
+      "38": {
+        "mean_value_error": 0.12336218224002772,
+        "median_value_error": 0.1266265811398879,
+        "mean_max_value_error": 0.1269484546327381,
+        "median_max_value_error": 0.13068015002755828,
+        "mean_regret": 3.1345427247613244e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.9,
+        "median_pct_optimal": 100.0
+      },
+      "39": {
+        "mean_value_error": 0.11098938109859975,
+        "median_value_error": 0.1138997981305035,
+        "mean_max_value_error": 0.11425360359833533,
+        "median_max_value_error": 0.11761212869083071,
+        "mean_regret": 2.5019645792151433e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.925,
+        "median_pct_optimal": 100.0
+      },
+      "40": {
+        "mean_value_error": 0.09990081591054485,
+        "median_value_error": 0.10254810787568341,
+        "mean_max_value_error": 0.10282823663496032,
+        "median_max_value_error": 0.10585090948777509,
+        "mean_regret": 3.0675050952120308e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.9125,
+        "median_pct_optimal": 100.0
+      },
+      "41": {
+        "mean_value_error": 0.08993883413134801,
+        "median_value_error": 0.09241710002882608,
+        "mean_max_value_error": 0.09254540705999244,
+        "median_max_value_error": 0.09526581220502583,
+        "mean_regret": 2.569002208764437e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.9125,
+        "median_pct_optimal": 100.0
+      },
+      "42": {
+        "mean_value_error": 0.08093745960922293,
+        "median_value_error": 0.08330112276038326,
+        "mean_max_value_error": 0.08329086027530724,
+        "median_max_value_error": 0.08573922465055128,
+        "mean_regret": 1.5592955804299979e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.9375,
+        "median_pct_optimal": 100.0
+      },
+      "43": {
+        "mean_value_error": 0.07283721375022308,
+        "median_value_error": 0.07484943173414704,
+        "mean_max_value_error": 0.07496176840817015,
+        "median_max_value_error": 0.07716529585152454,
+        "mean_regret": 1.5592955804299979e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.9375,
+        "median_pct_optimal": 100.0
+      },
+      "44": {
+        "mean_value_error": 0.06554948175279554,
+        "median_value_error": 0.06729452814976178,
+        "mean_max_value_error": 0.06746558478814285,
+        "median_max_value_error": 0.06944875993239963,
+        "mean_regret": 1.6263332099792915e-06,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.925,
+        "median_pct_optimal": 100.0
+      },
+      "45": {
+        "mean_value_error": 0.05900023678992984,
+        "median_value_error": 0.060634838233653565,
+        "mean_max_value_error": 0.06071902092046435,
+        "median_max_value_error": 0.06250387760518805,
+        "mean_regret": 4.7665024738252624e-07,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.9625,
+        "median_pct_optimal": 100.0
+      },
+      "46": {
+        "mean_value_error": 0.05311684818546739,
+        "median_value_error": 0.054607699562198964,
+        "mean_max_value_error": 0.05464711234090036,
+        "median_max_value_error": 0.05625348351069759,
+        "mean_regret": 6.034268475024751e-07,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.95,
+        "median_pct_optimal": 100.0
+      },
+      "47": {
+        "mean_value_error": 0.04779265918518469,
+        "median_value_error": 0.04911797541006985,
+        "mean_max_value_error": 0.04918239513561569,
+        "median_max_value_error": 0.050628128825655594,
+        "mean_regret": 5.436878769318198e-07,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.95,
+        "median_pct_optimal": 100.0
+      },
+      "48": {
+        "mean_value_error": 0.04300262566809993,
+        "median_value_error": 0.04415191881220126,
+        "mean_max_value_error": 0.044264149314011375,
+        "median_max_value_error": 0.0455653096091182,
+        "mean_regret": 3.6161955387514766e-07,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.975,
+        "median_pct_optimal": 100.0
+      },
+      "49": {
+        "mean_value_error": 0.038716227523703156,
+        "median_value_error": 0.03977497586039869,
+        "mean_max_value_error": 0.03983772874200047,
+        "median_max_value_error": 0.04100877231423494,
+        "mean_regret": 3.6161955387514766e-07,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.975,
+        "median_pct_optimal": 100.0
+      },
+      "50": {
+        "mean_value_error": 0.034848698316962336,
+        "median_value_error": 0.03585100896055632,
+        "mean_max_value_error": 0.035853949236092635,
+        "median_max_value_error": 0.03690788874883921,
+        "mean_regret": 4.2865718342444125e-07,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.9625,
+        "median_pct_optimal": 100.0
+      },
+      "51": {
+        "mean_value_error": 0.03135599898057268,
+        "median_value_error": 0.0322262825712874,
+        "mean_max_value_error": 0.03226854866223553,
+        "median_max_value_error": 0.03321709353998337,
+        "mean_regret": 1.4317710567701702e-07,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.9875,
+        "median_pct_optimal": 100.0
+      },
+      "52": {
+        "mean_value_error": 0.028220241281073585,
+        "median_value_error": 0.028962570395088705,
+        "mean_max_value_error": 0.029041687279805366,
+        "median_max_value_error": 0.029895377852013016,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "53": {
+        "mean_value_error": 0.025402036873328794,
+        "median_value_error": 0.02610127470738255,
+        "mean_max_value_error": 0.02613751272654183,
+        "median_max_value_error": 0.026905833732839834,
+        "mean_regret": 6.70376295492936e-08,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 99.9875,
+        "median_pct_optimal": 100.0
+      },
+      "54": {
+        "mean_value_error": 0.022860628929944848,
+        "median_value_error": 0.023526653459204627,
+        "mean_max_value_error": 0.02352375531309226,
+        "median_max_value_error": 0.024215244025583615,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "55": {
+        "mean_value_error": 0.020573841527686976,
+        "median_value_error": 0.02113964615549624,
+        "mean_max_value_error": 0.021171373914421667,
+        "median_max_value_error": 0.02179371328905333,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "56": {
+        "mean_value_error": 0.01851672329900741,
+        "median_value_error": 0.019005918352169082,
+        "mean_max_value_error": 0.01905422966352741,
+        "median_max_value_error": 0.019614335626175983,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "57": {
+        "mean_value_error": 0.01666493327313563,
+        "median_value_error": 0.017125025240254055,
+        "mean_max_value_error": 0.017148801391905635,
+        "median_max_value_error": 0.017652895729586504,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "58": {
+        "mean_value_error": 0.015000885187093126,
+        "median_value_error": 0.01542278300796246,
+        "mean_max_value_error": 0.015433914853045504,
+        "median_max_value_error": 0.01588759982265575,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "59": {
+        "mean_value_error": 0.013497970282734393,
+        "median_value_error": 0.013872323011274112,
+        "mean_max_value_error": 0.013890517332309085,
+        "median_max_value_error": 0.014298833506417807,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "60": {
+        "mean_value_error": 0.01214591947562068,
+        "median_value_error": 0.0124697619240009,
+        "mean_max_value_error": 0.012501459258766745,
+        "median_max_value_error": 0.012868943821804368,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "61": {
+        "mean_value_error": 0.010936028760424281,
+        "median_value_error": 0.011233583840750128,
+        "mean_max_value_error": 0.011251307614465276,
+        "median_max_value_error": 0.01158204310565214,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "62": {
+        "mean_value_error": 0.009842701881344394,
+        "median_value_error": 0.010125339693902391,
+        "mean_max_value_error": 0.010126170312324377,
+        "median_max_value_error": 0.010423832461115445,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "63": {
+        "mean_value_error": 0.008854932478370714,
+        "median_value_error": 0.009101610032437202,
+        "mean_max_value_error": 0.009113547717569209,
+        "median_max_value_error": 0.00938144288103171,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "64": {
+        "mean_value_error": 0.007969764168189473,
+        "median_value_error": 0.00817984115273901,
+        "mean_max_value_error": 0.008202186361628753,
+        "median_max_value_error": 0.008443292258956347,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "65": {
+        "mean_value_error": 0.007174399739772499,
+        "median_value_error": 0.007371726900492759,
+        "mean_max_value_error": 0.007381961869573405,
+        "median_max_value_error": 0.0075989566990890545,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "66": {
+        "mean_value_error": 0.006457198586695824,
+        "median_value_error": 0.006644577801075469,
+        "mean_max_value_error": 0.006643759461877865,
+        "median_max_value_error": 0.00683905469520818,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "67": {
+        "mean_value_error": 0.005810761123742614,
+        "median_value_error": 0.005970416310024262,
+        "mean_max_value_error": 0.005979377734828384,
+        "median_max_value_error": 0.0061551428917150375,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "68": {
+        "mean_value_error": 0.005229034238499999,
+        "median_value_error": 0.005367788669723317,
+        "mean_max_value_error": 0.005381433191045346,
+        "median_max_value_error": 0.005539622268571964,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "69": {
+        "mean_value_error": 0.004706415488635336,
+        "median_value_error": 0.004836568924153628,
+        "mean_max_value_error": 0.004843284506113042,
+        "median_max_value_error": 0.004985653707743065,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "70": {
+        "mean_value_error": 0.004236766486678805,
+        "median_value_error": 0.00435580518850287,
+        "mean_max_value_error": 0.0043589496240998326,
+        "median_max_value_error": 0.004487082002996523,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "71": {
+        "mean_value_error": 0.003812597357798312,
+        "median_value_error": 0.0039179097413121755,
+        "mean_max_value_error": 0.003923048542575385,
+        "median_max_value_error": 0.004038367468724768,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "72": {
+        "mean_value_error": 0.0034304037688151602,
+        "median_value_error": 0.003521785039349079,
+        "mean_max_value_error": 0.0035307374361653004,
+        "median_max_value_error": 0.003634524387880589,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "73": {
+        "mean_value_error": 0.003088269150733147,
+        "median_value_error": 0.003172651722118447,
+        "mean_max_value_error": 0.003177658061148011,
+        "median_max_value_error": 0.003271065615121138,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "74": {
+        "mean_value_error": 0.0027796845740230315,
+        "median_value_error": 0.0028596508472588655,
+        "mean_max_value_error": 0.002859885649266344,
+        "median_max_value_error": 0.0029439527196370996,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "75": {
+        "mean_value_error": 0.0025009062051636554,
+        "median_value_error": 0.002570519486015943,
+        "mean_max_value_error": 0.0025738914915113846,
+        "median_max_value_error": 0.002649551113701243,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "76": {
+        "mean_value_error": 0.0022511185913681713,
+        "median_value_error": 0.0023101845660128406,
+        "mean_max_value_error": 0.002316495681912338,
+        "median_max_value_error": 0.002384589668359638,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "77": {
+        "mean_value_error": 0.0020262781473652674,
+        "median_value_error": 0.002081949394893867,
+        "mean_max_value_error": 0.0020848403448645936,
+        "median_max_value_error": 0.002146124367552016,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "78": {
+        "mean_value_error": 0.0018234521875543966,
+        "median_value_error": 0.0018761353331031017,
+        "mean_max_value_error": 0.001876350172924252,
+        "median_max_value_error": 0.0019315055968247563,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "79": {
+        "mean_value_error": 0.0016410015292607117,
+        "median_value_error": 0.001686177755993723,
+        "mean_max_value_error": 0.0016887093113569012,
+        "median_max_value_error": 0.001738348703170356,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "80": {
+        "mean_value_error": 0.0014768251521208513,
+        "median_value_error": 0.001515978025042164,
+        "mean_max_value_error": 0.0015198315784875618,
+        "median_max_value_error": 0.0015645074988812624,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "81": {
+        "mean_value_error": 0.001329335690628564,
+        "median_value_error": 0.0013659459027302034,
+        "mean_max_value_error": 0.0013678429740329148,
+        "median_max_value_error": 0.0014080504150211226,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "82": {
+        "mean_value_error": 0.001196573000673106,
+        "median_value_error": 0.00123016377270746,
+        "mean_max_value_error": 0.0012310523346904653,
+        "median_max_value_error": 0.0012672390395467303,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "83": {
+        "mean_value_error": 0.00107663353483421,
+        "median_value_error": 0.0011064894155360938,
+        "mean_max_value_error": 0.0011079410728095107,
+        "median_max_value_error": 0.0011405088016203102,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "84": {
+        "mean_value_error": 0.0009687589652162159,
+        "median_value_error": 0.0009946120753731025,
+        "mean_max_value_error": 0.000997140648839837,
+        "median_max_value_error": 0.0010264515874860436,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "85": {
+        "mean_value_error": 0.0008721936402016861,
+        "median_value_error": 0.0008960064002485613,
+        "mean_max_value_error": 0.0008974209173819948,
+        "median_max_value_error": 0.000923800094765781,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "86": {
+        "mean_value_error": 0.0007851084017870289,
+        "median_value_error": 0.0008076057140854465,
+        "mean_max_value_error": 0.0008076721407580236,
+        "median_max_value_error": 0.0008314137513170117,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "87": {
+        "mean_value_error": 0.000706304350522259,
+        "median_value_error": 0.0007259466102738088,
+        "mean_max_value_error": 0.000726899421188798,
+        "median_max_value_error": 0.0007482660422133414,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "88": {
+        "mean_value_error": 0.0006356683154286731,
+        "median_value_error": 0.0006524201769203541,
+        "mean_max_value_error": 0.0006542029048108653,
+        "median_max_value_error": 0.000673433104020571,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "89": {
+        "mean_value_error": 0.0005722078217477171,
+        "median_value_error": 0.0005879599859001661,
+        "mean_max_value_error": 0.0005887767833637991,
+        "median_max_value_error": 0.0006060834596466336,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "90": {
+        "mean_value_error": 0.0005149690748781517,
+        "median_value_error": 0.0005299578711095987,
+        "mean_max_value_error": 0.0005298929398186769,
+        "median_max_value_error": 0.0005454687797095126,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "91": {
+        "mean_value_error": 0.000463477920289373,
+        "median_value_error": 0.00047618224700474165,
+        "mean_max_value_error": 0.000476897721320028,
+        "median_max_value_error": 0.0004909155677670363,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "92": {
+        "mean_value_error": 0.0004170654247432707,
+        "median_value_error": 0.00042811293005240447,
+        "mean_max_value_error": 0.0004292012310495631,
+        "median_max_value_error": 0.0004418176770184523,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "93": {
+        "mean_value_error": 0.00037535824881493546,
+        "median_value_error": 0.0003857394514900636,
+        "mean_max_value_error": 0.00038627574918679745,
+        "median_max_value_error": 0.00039762957534428267,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "94": {
+        "mean_value_error": 0.00033788737131627985,
+        "median_value_error": 0.0003473903164386005,
+        "mean_max_value_error": 0.00034764176809165293,
+        "median_max_value_error": 0.0003578602838381073,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "95": {
+        "mean_value_error": 0.0003040372609565403,
+        "median_value_error": 0.00031246127607520435,
+        "mean_max_value_error": 0.00031287153060190415,
+        "median_max_value_error": 0.00032206792148237184,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      },
+      "96": {
+        "mean_value_error": 0.00027359330631764544,
+        "median_value_error": 0.000280863786550678,
+        "mean_max_value_error": 0.0002815779830379689,
+        "median_max_value_error": 0.0002898547953624764,
+        "mean_regret": 0.0,
+        "median_regret": 0.0,
+        "mean_pct_optimal": 100.0,
+        "median_pct_optimal": 100.0
+      }
+    }
+  },
+  "oneshot": {
+    "mean_value_error": 1.2241449159126478,
+    "median_value_error": 1.0429824500529739,
+    "mean_max_value_error": 1.894473783896768,
+    "median_max_value_error": 1.7539802597750738,
+    "mean_regret": 0.10710864897893999,
+    "median_regret": 0.07048674605740207,
+    "mean_pct_optimal": 75.0,
+    "median_pct_optimal": 75.0
+  },
+  "best_recurrent_iteration": 96,
+  "best_recurrent_median_error": 0.09767330624527826
+}
