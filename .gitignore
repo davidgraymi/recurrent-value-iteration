@@ -221,3 +221,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# experiment outputs
+checkpoints/
+results/metrics.npz
