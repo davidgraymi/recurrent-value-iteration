@@ -83,7 +83,19 @@ python -m src.diagnose   # fixed-point diagnostics, 1,024 iterations
 ```
 
 ```bash
-python -m pytest -q      # 20 unit tests
+python -m src.coverage   # training-coverage experiment, 7 variants x 3 seeds, ~14 min on CPU
+```
+
+```bash
+python -m src.coverage --ci   # bootstrap confidence intervals from the saved checkpoints
+```
+
+```bash
+python -m src.residual   # structure-preserving updaters, ~15 min of training + ~15 min of evaluation on CPU
+```
+
+```bash
+python -m pytest -q      # 30 unit tests
 ```
 
 `python -m src.train --small` is the fallback configuration from the spec: 5,000 training MDPs and 50 epochs. It was not needed, because the default run takes about 25 s in total. `--device cpu|mps|auto` picks the device; the default is MPS when available, otherwise CPU.
@@ -100,6 +112,8 @@ python -m pytest -q      # 20 unit tests
 | `results/metrics.npz` | Raw per-MDP metrics and all predicted value vectors (gitignored, 6 MB) |
 | `results/plots/*.png` | The five required plots |
 | `results/diagnostics/` | Fixed-point diagnostics: `report.md`, `summary.json`, three plots |
+| `results/coverage/` | Training-coverage experiment: `report.md`, `summary.json`, `ci.md` (bootstrap CIs), three plots |
+| `results/residual/` | Structure-preserving updaters: `report.md`, `summary.json`, two plots |
 
 ## What is implemented
 
@@ -144,16 +158,102 @@ Regret tells a slightly different story from value error. The greedy policy is a
 
 In short, the updater learned the direction of value iteration and converges stably, but to a biased fixed point. The diagnostics add the reason: most of the bias comes from f_θ extrapolating to successor values above anything in its training trajectories. A contraction factor near 0.9 amplifies that small per-step error by up to about 10×.
 
-Directions this points to for the next experiment, none of them tested here:
+Directions this points to (the next section tests broader coverage, plus a residual parameterisation of f):
 - train on longer trajectories, or on V\* itself, so the value range is covered
 - add a fixed-point or Bellman-residual loss on T̂(V\*) − V\*
 - normalise value inputs so that high values are not extrapolation
+
+## Training-coverage experiment
+
+`python -m src.coverage` tests whether the fixed-point bias comes from extrapolation. Each variant keeps the test MDPs, the 2-64-64-1 update MLP and the training configuration, and runs with three seeds (42–44). Only the training data, or how f is set up, changes:
+
+| Variant | What changes | Coverage (largest successor value trained on) |
+|---|---|---:|
+| `baseline` | V₁…V₁₆ trajectories, as before | 7.94 |
+| `broad_ops_9/10/12` | adds a one-step loss on random value vectors V ~ U[−a, a]⁸, with target T(V) | 9 / 10 / 12 |
+| `reward_scale_1.3` | rewards ×1.3 in half the training MDPs, so trajectories reach higher values | 10.32 |
+| `residual` | f = r + 0.9v + ε(r, v): ε starts at exactly 0, with an L2 penalty on ε | 7.94 |
+| `residual_randinit` | same as `residual`, but ε starts as a random MLP | 7.94 |
+
+Results are the mean ± std over seeds. High-V\* MDPs are the 35.9% of test MDPs whose V\* exceeds 7.94 in some state. The full table is in [results/coverage/report.md](results/coverage/report.md).
+
+| | baseline | broad_ops_9 | broad_ops_10 | broad_ops_12 | reward_scale_1.3 | residual_randinit |
+|---|---:|---:|---:|---:|---:|---:|
+| fixed-point error ‖V̂∞−V\*‖∞, all MDPs | 0.087 ± 0.028 | 0.054 ± 0.008 | 0.101 ± 0.061 | 0.094 ± 0.044 | 0.059 ± 0.016 | **0.0060 ± 0.0027** |
+| … high-V\* MDPs | 0.344 ± 0.092 | 0.291 ± 0.042 | 0.351 ± 0.143 | 0.163 ± 0.025 | 0.085 ± 0.021 | **0.018 ± 0.012** |
+| one-step error at V\*, high-V\* MDPs | 0.046 ± 0.012 | 0.036 ± 0.005 | 0.044 ± 0.019 | 0.025 ± 0.003 | 0.019 ± 0.007 | **0.0029 ± 0.0009** |
+| \|f − (r + 0.9v)\| for v > 7.94 | 0.023 ± 0.008 | 0.014 ± 0.002 | 0.015 ± 0.008 | 0.013 ± 0.004 | 0.015 ± 0.006 | **0.0027 ± 0.0014** |
+| true Bellman residual at 1,024 | 0.017 ± 0.004 | 0.012 ± 0.003 | 0.017 ± 0.009 | 0.018 ± 0.006 | 0.013 ± 0.004 | **0.0013 ± 0.0005** |
+| mean regret at 1,024 | 3.4e-4 | 1.9e-4 | 2.4e-4 | 8.5e-5 | 6.2e-5 | **2.1e-6** |
+
+The zero-initialised `residual` variant reaches V\* to within 4e-6, with zero regret. That result is trivial: it starts as exact value iteration and its targets give it no reason to move, so it is not shown in the table.
+
+What this shows:
+
+1. **Coverage helps where it should, but how you add it matters.**
+   - Realistic high-value trajectories (`reward_scale_1.3`) cut the fixed-point error on high-V\* MDPs about 4×, from 0.34 to 0.085. They also cut the one-step error at V\* from 0.046 to 0.019 and mean regret from 3.4e-4 to 6.2e-5.
+   - Random operator samples help much less, and inconsistently. All three ranges reduce the f error above 7.94 (0.023 → ~0.014), but the fixed-point error barely moves: only `broad_ops_12` improves the high-V\* MDPs clearly, to 0.16. A likely reason is that uniform random value vectors do not look like real iterates, so training effort goes to inputs the recurrence never visits.
+   - Early stopping uses only the trajectory validation loss, so these variants stop after about 20 epochs. They may be under-trained on the operator loss.
+2. **The plateau is an approximation problem that can be fixed, not a limit of recurrent refinement.** No variant changes the architecture or the recurrence. Better coverage alone moves the learned fixed point closer to V\*. The residual setup moves it about 15× closer (0.087 → 0.006) while training on the same narrow 0–7.94 range.
+3. **The residual parameterisation matters more than coverage.**
+   - With f = r + 0.9v + ε, the network does not have to rediscover the discount or extrapolate it. Even starting from a random ε, training shrinks ε everywhere, including above the training range. It does so less well there (0.0027 above 7.94 vs 0.0004 below), but the leftover bias is tiny.
+   - This supports the idea that learning only the deviation from a known Bellman structure is what makes the operator extrapolate. It also bakes in γ, so it tests far less of what is "learned".
+4. **Seed variance is large.** The baseline fixed-point error ranges from 0.062 to 0.126 across seeds. The single MPS run analysed above (0.123) falls inside that range. Differences smaller than about 2× between the non-residual variants should not be over-read.
+
+Bootstrap 95% CIs over test MDPs are in [results/coverage/ci.md](results/coverage/ci.md). They come from 2,000 resamples, with each MDP's error averaged over seeds, and the ratios are paired against the baseline on the same MDPs.
+- High-V\* error, relative to baseline: `reward_scale_1.3` 0.21× [0.195, 0.225], `broad_ops_12` 0.47× [0.45, 0.50], `residual_randinit` 0.047× [0.045, 0.052].
+- Overall error, relative to baseline: `residual_randinit` 0.085× [0.083, 0.090], and `broad_ops_10` is *worse* at 1.10× [1.05, 1.16].
+- These intervals cover only sampling of MDPs. They are much narrower than the spread across seeds, so seed-to-seed variation is the larger source of uncertainty.
+
+The anytime-refinement result stands: every variant keeps improving well past iteration 16 and converges stably. Training-range coverage and the parameterisation of the update set how close the converged answer gets to V\*.
+
+## Structure-preserving updaters
+
+`python -m src.residual` follows up on the residual result. Full tables are in [results/residual/report.md](results/residual/report.md).
+
+The zero-initialised `residual` model above is effectively the "correction disabled" sanity check. It starts as exact value iteration, its targets are exact value iteration, and its ε stays near 1e-6. So its 3.6e-6 error is the float32 precision floor (running the base operator with ε removed gives 3.7e-6), not something it learned. The informative models are the ones whose correction starts random.
+
+**A. What does ε learn when the base is already exact?** Nothing useful. The ideal correction is 0, so any nonzero ε is error.
+- In `residual_randinit`, |ε| is about 5e-4 at the inputs the converged iteration actually visits.
+- Above the training range (v > 7.94), the mean |ε| is 3–18× larger than inside it, depending on the seed.
+- With ε switched off, the same model is exact value iteration.
+
+**B. Discount shift and a misspecified base.** All five variants below train on 16-step exact trajectories, with ε starting from random init. They are tested at γ ∈ {0.80, 0.85, 0.90, 0.95, 0.97}; 0.95 and 0.97 are outside every training range. The table shows the median fixed-point error ‖V̂∞ − V\*‖∞, as mean ± std over 3 seeds.
+
+| variant | update | trained at | γ=0.80 | γ=0.90 | γ=0.95 | γ=0.97 |
+|---|---|---|---:|---:|---:|---:|
+| `mlp_g0.9` | f(r, v) | γ = 0.9 | 3.56 | 0.115 | 7.2 | 16.7 |
+| `mlp_gcond` | f(r, v, γ) | γ ~ U[0.80, 0.92] | 0.119 | 0.313 | 6.0 | 15.1 |
+| `res_g0.9` | r + γv + ε(r, v) | γ = 0.9 | **7.0e-4** | **0.0060** | **0.54** | 3.45 ± 1.08 |
+| `res_gcond` | r + γv + ε(r, v, γ) | γ ~ U[0.80, 0.92] | 5.6e-4 | 0.0084 | 0.83 | 3.46 ± 0.86 (1 MDP diverged in 1 of 3 seeds) |
+| `res_misspec` | r + 0.8v + ε(r, v) | γ = 0.9 | 3.57 | 0.0135 | 7.17 | 16.7 |
+| any residual model, ε disabled | exact VI at the supplied γ | – | 3.9e-7 | 3.7e-6 | 1.1e-5 | 1.5e-5 |
+| `res_misspec`, ε disabled | VI with discount 0.8 | – | 3.9e-7 | 3.58 | 10.7 | 20.3 |
+
+What this shows:
+
+1. **Feeding γ to the base is what makes a model generalise across discounts, not giving γ to the network.**
+   - `res_g0.9` never saw any γ but 0.9, yet it beats both plain MLPs at every test γ, by 4× (γ = 0.97) up to 5,000×, including discounts it was never trained on (7e-4 vs 3.56 at γ = 0.8).
+   - Giving the network γ as an input did not help. `mlp_gcond` improves at γ = 0.8 but gets worse at 0.9 and still fails outside the training range. `res_gcond` is no better than `res_g0.9` anywhere, and it has the only divergence in the study.
+2. **A learned correction can repair a wrong base.** In `res_misspec` the base uses discount 0.8 while the data uses 0.9.
+   - ε learns the missing 0.1·v almost exactly: mean error 0.001 inside the training range and 0.008 above it. It even extrapolates nearly linearly to v = 12 (see [plot](results/residual/2_learned_correction.png)).
+   - That cuts the error at γ = 0.9 from 3.58 with the base alone to 0.0135.
+   - Because ε cannot see γ, the repair only holds at the γ it was trained on. At other discounts `res_misspec` is no better than the plain MLP.
+   - This is the setting the paste asked for: a learned residual improving on an incomplete base. It does, but only at the training discount.
+3. **Outside the training discounts, the correction makes things worse.** With an exact base, error at γ = 0.95/0.97 grows to 0.54/3.45, against 1e-5 for the base alone. Relative to the largest possible |V| = 1/(1−γ), that is 2.7% and 10%.
+   - Those discounts produce values well outside training (V\* up to about 33). There the correction is extrapolating, the same failure as before, just smaller.
+   - The single divergence makes the point sharply. One test MDP has a self-looping state with all-negative rewards, so V\* = −24.6, while training never shows a value below −3.91. That far out, `res_gcond`'s update grows values instead of shrinking them, and the value runs off to −∞.
+4. **Regret follows the same pattern.** Residual models with the correct base have regret of about 1e-9 to 2e-6 inside the training discounts and 1e-4 to 3e-4 outside them. The plain MLPs sit between 3e-4 and 2e-2.
+
+The claims of this study, kept separate:
+- **Learned recurrent refinement.** A shared learned update trained on 16 steps keeps improving long past that horizon on unseen MDPs, and converges stably. Its fixed point is biased by how well the learned update extrapolates in *value*, and broader value coverage reduces that bias.
+- **Structure-preserving refinement.** Making the known Bellman form explicit (r + γv, with γ supplied) cuts the fixed-point error by about 15–20× at the training discount, even with a randomly initialised correction. It also carries over to new discounts, and lets a learned correction fix a misspecified base. Its remaining weak point is the same as the plain model's: the learned part can only be trusted on values and discounts it was trained on, and far outside them it can break contraction.
 
 ## Limitations
 
 - The MDPs are tiny (8 states, 3 actions, deterministic) and share one γ. Nothing here says how the result scales to larger or stochastic MDPs, longer effective horizons, or learned transition models.
 - The structural prior is strong. The successor lookup and the max over actions are given, so f_θ only has to learn the scalar map (r, v) ↦ r + 0.9v. This is a test of whether a learned update can be iterated stably, not of learning to plan from scratch.
 - Median regret has a floor effect. The median MDP has zero regret from iteration 4 onward, so criterion 2 cannot detect improvement after the horizon. Mean regret and % optimal actions are more informative here.
-- The run uses one seed and one training configuration, and there are no confidence intervals across seeds. The plateau level depends on how accurately f_θ matches the Bellman map, which likely varies between runs.
+- The main experiment and the diagnostics use one seed. The coverage experiment uses three, and shows the plateau level varies by about 2× across seeds.
 - The one-shot baseline uses a particular input encoding (one-hot transitions) and the same training budget. It overfits quickly, and a better-regularized direct predictor might do better.
 - None of this suggests recurrent value updaters can replace MCTS or other search. It is a controlled first test of whether a learned recurrent value update supports useful inference-time computation.

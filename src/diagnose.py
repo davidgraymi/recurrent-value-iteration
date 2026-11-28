@@ -146,7 +146,7 @@ def main():
     R, Vg = np.meshgrid(r_grid, v_grid, indexing="ij")
     with torch.no_grad():
         x = torch.as_tensor(np.stack([R, Vg], -1), dtype=torch.float32, device=device)
-        f = model.f(x).squeeze(-1).cpu().double().numpy()
+        f = model.q(x).cpu().double().numpy()
     f_err = f - (R + GAMMA * Vg)
     # Effective discount: slope of f in v
     eff_gamma = np.gradient(f, v_grid, axis=1)

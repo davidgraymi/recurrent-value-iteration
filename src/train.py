@@ -79,16 +79,22 @@ def evaluate_loss(model, loss_fn, data, batch_size):
     return total / n
 
 
-def train_model(name, model, loss_fn, train, val, args, device):
-    """Adam + grad clipping + early stopping; saves the best-validation checkpoint."""
-    set_seed(SEED)
+def train_model(name, model, loss_fn, train, val, args, device,
+                seed=SEED, ckpt_dir=CKPT_DIR, val_loss_fn=None, verbose=True):
+    """Adam + grad clipping + early stopping; saves the best-validation checkpoint.
+
+    `val_loss_fn` defaults to `loss_fn`; pass a different one when the training
+    loss has extra terms that should not decide early stopping.
+    """
+    set_seed(seed)
+    val_loss_fn = val_loss_fn or loss_fn
     model.to(device)
     opt = torch.optim.Adam(model.parameters(), lr=args.lr)
-    gen = torch.Generator().manual_seed(SEED)
+    gen = torch.Generator().manual_seed(seed)
     n_train = train["reward"].shape[0]
     best_val, best_epoch, bad_epochs = float("inf"), -1, 0
     history = []
-    ckpt_path = os.path.join(CKPT_DIR, f"{name}.pt")
+    ckpt_path = os.path.join(ckpt_dir, f"{name}.pt")
     t0 = time.time()
 
     for epoch in range(1, args.epochs + 1):
@@ -103,7 +109,7 @@ def train_model(name, model, loss_fn, train, val, args, device):
             opt.step()
             running += loss.item() * batch["reward"].shape[0]
         train_loss = running / n_train
-        val_loss = evaluate_loss(model, loss_fn, val, args.batch_size)
+        val_loss = evaluate_loss(model, val_loss_fn, val, args.batch_size)
         history.append({"epoch": epoch, "train_loss": train_loss, "val_loss": val_loss})
 
         improved = val_loss < best_val
@@ -115,11 +121,12 @@ def train_model(name, model, loss_fn, train, val, args, device):
             )
         else:
             bad_epochs += 1
-        print(
-            f"[{name}] epoch {epoch:3d}  train {train_loss:.3e}  val {val_loss:.3e}"
-            f"{'  *' if improved else ''}  ({time.time() - t0:.0f}s)",
-            flush=True,
-        )
+        if verbose:
+            print(
+                f"[{name}] epoch {epoch:3d}  train {train_loss:.3e}  val {val_loss:.3e}"
+                f"{'  *' if improved else ''}  ({time.time() - t0:.0f}s)",
+                flush=True,
+            )
         if bad_epochs >= args.patience:
             print(f"[{name}] early stopping at epoch {epoch}", flush=True)
             break
